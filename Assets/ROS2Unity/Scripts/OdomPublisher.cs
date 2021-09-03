@@ -13,10 +13,7 @@ public class OdomPublisher : MonoBehaviour
 
     void Start()
     {
-        // start the ROS connection
         ros = ROSConnection.instance;
-
-        //Publish
         ros.RegisterPublisher<PosRot>("unity_odom");
     }
 
@@ -31,7 +28,7 @@ public class OdomPublisher : MonoBehaviour
         if (status == true)
         {
             cube.transform.position += transform.forward * 0.05f * Time.deltaTime;
-            //Send untiy_odom to turtlebot_control
+
             PosRot cubePos = new PosRot(
                 cube.transform.position.x,
                 cube.transform.position.y,
@@ -42,10 +39,8 @@ public class OdomPublisher : MonoBehaviour
                 cube.transform.rotation.w
                 );
 
-            // Finally send the message to server_endpoint.py running in ROS
             ros.Send("unity_odom", cubePos);
 
-            //Manual Emergency Stop
             if (Input.GetKey(KeyCode.DownArrow))
             {
                 status = false;

@@ -6,7 +6,7 @@ public class TwistPublisher : MonoBehaviour
 {
     public string topicName;
     public float publishMessageFrequency = 0.5f;
-    private ROSConnection m_ros;
+    private ROSConnection ros;
     private float timeElapsed;
     [SerializeField]
     private JoyStickHandler joyStickHandler;
@@ -20,8 +20,8 @@ public class TwistPublisher : MonoBehaviour
 
     void Start()
     {
-        m_ros = ROSConnection.instance;
-        m_ros.RegisterPublisher<TwistMsg>(topicName);
+        ros = ROSConnection.instance;
+        ros.RegisterPublisher<TwistMsg>(topicName);
         
 
         
@@ -87,6 +87,6 @@ public class TwistPublisher : MonoBehaviour
 
     private void SendTwistMsg(TwistMsg msg)
     {
-        m_ros.Send(topicName, msg);
+        ros.Send(topicName, msg);
     }
 }
