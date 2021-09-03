@@ -6,12 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Nac2SLAMExampleProject/Scenes/SimpleWarehouseScene.unity
+    path: Assets/Nav2SLAMExampleProject/Scenes/SimpleWarehouseScene.unity
     guid: 853b6c7d78dda3144b2d4b6c45b2498a
   - enabled: 1
-    path: Assets/Nac2SLAMExampleProject/Scenes/BasicScene.unity
+    path: Assets/Nav2SLAMExampleProject/Scenes/BasicScene.unity
     guid: 4124fab2d5d19c8499effae5c804eb62
   - enabled: 1
-    path: Assets/Nac2SLAMExampleProject/Scenes/Test/SimpleObstacleCourse.unity
+    path: Assets/Nav2SLAMExampleProject/Scenes/Test/SimpleObstacleCourse.unity
     guid: 3ac50540e9c5fc4408b358ac551a7fea
-  m_configObjects: {}
+  m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 3438a49c666833040aa531e0846718ae, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 7f31e5993a16ed1409f207a7a2080f1e, type: 2}
