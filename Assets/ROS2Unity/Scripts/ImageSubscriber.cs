@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
 using Unity.Robotics.ROSTCPConnector;
 using RosMessageTypes.Sensor;
 
@@ -14,23 +13,22 @@ public class ImageSubscriber : MonoBehaviour
     void Start()
     {
         ros = ROSConnection.instance;
-        ros.Subscribe<ImageMsg>(topicName, ReceiveMsg);
+        ros.Subscribe<CompressedImageMsg>(topicName, ReceiveMsg);
 
-        tex = new Texture2D(640, 480, TextureFormat.RGB24, false);
+        tex = new Texture2D(1, 1);
     }
 
-    void ReceiveMsg(ImageMsg compressedImage)
+    void ReceiveMsg(CompressedImageMsg compressedImage)
     {
-        if (!isMessageReceived) {
-            Debug.Log("Received");
-            byte[] imageData = compressedImage.data;
-            ProcessMessage(imageData);
-        }
+        Debug.Log("Received Image");
+        byte[] imageData = compressedImage.data;
+        
+        RenderTexture(imageData);
     }
 
-    private void ProcessMessage(byte[] data)
+    private void RenderTexture(byte[] data)
     {        
-        tex.LoadRawTextureData(data);
+        tex.LoadImage(data);
         targetRenderer.material.mainTexture = tex;
         tex.Apply();
     }
