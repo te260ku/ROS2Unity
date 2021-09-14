@@ -10,8 +10,8 @@ public class TwistPublisher : MonoBehaviour
     private float timeElapsed;
     [SerializeField]
     private JoyStickHandler joyStickHandler;
-    private float linearSpeed = 0.05f;
-    private float angularSpeed = 0.2f;
+    public float linearSpeed = 0.05f;
+    public float angularSpeed = 0.2f;
     public enum MANIPULATION_MODE {
         STICK, 
         KEY
@@ -50,10 +50,10 @@ public class TwistPublisher : MonoBehaviour
                         linear_x = -linearSpeed;
                         break;
                     case JoyStickHandler.JOY_STICK_INPUT.LEFT:
-                        angular_z = angularSpeed;
+                        angular_z = -angularSpeed;
                         break;
                     case JoyStickHandler.JOY_STICK_INPUT.RIGHT:
-                        angular_z = -angularSpeed;
+                        angular_z = angularSpeed;
                         break;
                     default:
                         break;
@@ -61,16 +61,16 @@ public class TwistPublisher : MonoBehaviour
             } else if (manipulationMode == MANIPULATION_MODE.KEY) {
 
                 if (Input.GetKey(KeyCode.UpArrow)) {
-                    linear_x = 0.5f;
+                    linear_x = linearSpeed;
                 }
                 if (Input.GetKey(KeyCode.DownArrow)) {
-                    linear_x = -0.5f;
+                    linear_x = -linearSpeed;
                 }
                 if (Input.GetKey(KeyCode.LeftArrow)) {
-                    angular_z = -0.5f;
+                    angular_z = angularSpeed;
                 }
                 if (Input.GetKey(KeyCode.RightArrow)) {
-                    linear_x = 0.5f;
+                    angular_z = -angularSpeed;
                 }
                 
             }

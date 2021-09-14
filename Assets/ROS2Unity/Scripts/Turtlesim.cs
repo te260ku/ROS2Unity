@@ -23,7 +23,7 @@ public class Turtlesim : MonoBehaviour
     private void Move(Vector3 linear, Vector3 angular)
     {
         rb.velocity = transform.forward * (float)linear.x;
-        rb.angularVelocity = new Vector3(0, (float)angular.z, 0);
+        rb.angularVelocity = new Vector3(0, -(float)angular.z, 0);
     }
 
     public void SetSpeed(Vector3 linear, Vector3 angular) {
