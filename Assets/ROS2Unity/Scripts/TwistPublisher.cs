@@ -67,10 +67,10 @@ public class TwistPublisher : MonoBehaviour
                     linear_x = -linearSpeed;
                 }
                 if (Input.GetKey(KeyCode.LeftArrow)) {
-                    angular_z = angularSpeed;
+                    angular_z = -angularSpeed;
                 }
                 if (Input.GetKey(KeyCode.RightArrow)) {
-                    angular_z = -angularSpeed;
+                    angular_z = angularSpeed;
                 }
                 
             }

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class JoyStickHandler : MonoBehaviour
 {
-    public OVRInput.Controller controlL;
-    public OVRInput.Controller controlR;
     public enum JOY_STICK_INPUT {
         NONE, 
         UP, 
